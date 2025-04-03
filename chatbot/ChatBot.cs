@@ -1,6 +1,7 @@
-// Program.cs
 using System;
 using System.Threading;
+using System.Collections.Generic;
+using System.Linq;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -70,10 +71,7 @@ public static class AsciiArt
     }
 }
 
-// ChatBot.cs
-using System;
-using System.Collections.Generic;
-using System.Linq;
+
 
 public class ChatBot
 {
