@@ -1,4 +1,5 @@
 # C sharp chatbot
+- A chatbot console application meant to engage and inform users about possible cyber security scams.
 
 ## a console application that will:
 - Play a wav format welcome audio 
