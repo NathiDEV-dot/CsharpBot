@@ -1,19 +1,25 @@
-public static class Typewriter
-{
-    public static void WriteLine(string text, int delayMs = 10)
-    {
-        foreach (char c in text)
-        {
-            Console.Write(c);
-            Thread.Sleep(delayMs);
-        }
-        Console.WriteLine();
-    }
+using System;
+using System.Threading;
 
-    public static void WriteColored(string text, ConsoleColor color, int delayMs = 10)
+namespace CyberSecurityChatBot
+{
+    public static class Typewriter
     {
-        Console.ForegroundColor = color;
-        WriteLine(text, delayMs);
-        Console.ResetColor();
+        public static void WriteLine(string text, int delayMs = 10)
+        {
+            foreach (char c in text)
+            {
+                Console.Write(c);
+                Thread.Sleep(delayMs);
+            }
+            Console.WriteLine();
+        }
+
+        public static void WriteColored(string text, ConsoleColor color, int delayMs = 10)
+        {
+            Console.ForegroundColor = color;
+            WriteLine(text, delayMs);
+            Console.ResetColor();
+        }
     }
 }

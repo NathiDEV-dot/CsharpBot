@@ -1,10 +1,17 @@
 ﻿using System;
+using System.Threading;
 
-class Program 
+namespace CyberSecurityChatBot
 {
-    static void Main()
+    class Program
     {
-        Console.OutputEncoding = System.Text.Encoding.UTF8; // Enable special characters
-        new ChatBot().Run();
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Typewriter.WriteLine("Initializing CyberGuardian Bot...\n", 30);
+            Thread.Sleep(500);
+            new ChatBot().Run();
+        }
     }
 }

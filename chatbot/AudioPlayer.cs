@@ -1,18 +1,29 @@
-using System.Media;
+using System;
+using NAudio.Wave;
 
-public static class AudioService
+namespace CyberSecurityChatBot
 {
-    public static void PlayWelcome()
+    public static class AudioService
     {
-        try 
+        public static void PlayWelcome()
         {
-            // Note: Place "welcome.wav" in Resources folder
-            using var player = new SoundPlayer("Resources/welcome.wav");
-            player.PlaySync(); // Blocks until playback finishes
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"[Audio Error] {ex.Message}");
+            try 
+            {
+                using var audioFile = new AudioFileReader("Resources/welcome.wav");
+                using var outputDevice = new WaveOutEvent();
+                outputDevice.Init(audioFile);
+                outputDevice.Play();
+                while (outputDevice.PlaybackState == PlaybackState.Playing)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[Audio Error] {ex.Message}");
+                Console.ResetColor();
+            }
         }
     }
 }
